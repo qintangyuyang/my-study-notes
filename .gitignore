@@ -105,6 +105,11 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 
+# ===== C# 练习项目（.NET 编译产物与 IDE 配置）=====
+**/[Bb]in/
+**/[Oo]bj/
+.idea/
+
 # ===== 本地私有文件（不提交到 GitHub，仅本地可见）=====
 roadmap.md
 摸底测试卷.docx
