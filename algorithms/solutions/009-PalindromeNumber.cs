@@ -1,0 +1,30 @@
+// =====================================================================
+// LC 9 · Palindrome Number（回文数）· 简单
+// 来源：LeetCode 面试经典 150 题
+// ---------------------------------------------------------------------
+// 【题目】给一个整数 x，如果 x 是回文整数（正着读反着读相同）返回 true，
+//         否则返回 false。
+// 【示例】121 → true；-121 → false；10 → false
+// =====================================================================
+using System;
+
+class PalindromeDemo
+{
+    public static void Run()
+    {
+        int[] tests = { 121, -121, 10 };
+        foreach (int x in tests)
+        {
+            Console.WriteLine(x + " → " + IsPalindrome(x));
+        }
+        Console.WriteLine("期望：121 → True；-121 → False；10 → False");
+        Console.WriteLine();
+        Console.WriteLine("（尚未实现，目前恒返回 false——打开本文件实现 TODO）");
+    }
+
+    // TODO：实现 IsPalindrome
+    static bool IsPalindrome(int x)
+    {
+        return false;   // 占位，实现后删除
+    }
+}
