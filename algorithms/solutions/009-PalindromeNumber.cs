@@ -21,10 +21,26 @@ class PalindromeDemo
         Console.WriteLine();
         Console.WriteLine("（尚未实现，目前恒返回 false——打开本文件实现 TODO）");
     }
-
-    // TODO：实现 IsPalindrome
+    
     static bool IsPalindrome(int x)
     {
-        return false;   // 占位，实现后删除
+        if (x < 0)
+        {
+            return false;
+        }
+        var str = x.ToString();
+        int left = 0;
+        int right = str.Length - 1;
+        while (left < right)
+        {
+            if(str[left] != str[right])
+            {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true; 
     }
 }
