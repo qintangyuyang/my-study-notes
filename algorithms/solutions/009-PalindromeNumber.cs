@@ -19,9 +19,8 @@ class PalindromeDemo
         }
         Console.WriteLine("期望：121 → True；-121 → False；10 → False");
         Console.WriteLine();
-        Console.WriteLine("（尚未实现，目前恒返回 false——打开本文件实现 TODO）");
     }
-    
+
     static bool IsPalindrome(int x)
     {
         if (x < 0)

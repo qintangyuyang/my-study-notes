@@ -20,12 +20,52 @@ class RomanToIntegerDemo
         }
         Console.WriteLine("期望：III → 3；LVIII → 58；MCMXCIV → 1994");
         Console.WriteLine();
-        Console.WriteLine("（尚未实现，目前恒返回 0——打开本文件实现 TODO）");
     }
 
-    // TODO：实现 RomanToInt
     static int RomanToInt(string s)
     {
-        return 0;   // 占位，实现后删除
+        int result = 0;
+        int first = 0;
+        int second = 1;
+        if (s.Length == 1)
+        {
+            return GetValue(s[0]);
+        }
+        while (second < s.Length)
+        {
+            if (GetValue(s[first]) >= GetValue(s[second]))
+            {
+                result += GetValue(s[first]);
+                first++;
+                second++;
+            }
+            else
+            {
+                result += GetValue(s[second]) - GetValue(s[first]);
+                first += 2;
+                second += 2;
+            }
+            //判断一下指针移动后second是否越界，如果越界了就把最后一个字符的值加上
+            if (second >= s.Length && first < s.Length)
+            {
+                result += GetValue(s[first]);
+            }
+        }
+        return result;
+    }
+
+    static int GetValue(char c)
+    {
+        switch (c)
+        {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+        }
     }
 }
