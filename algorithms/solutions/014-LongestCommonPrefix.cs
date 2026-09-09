@@ -17,12 +17,43 @@ class LongestCommonPrefixDemo
         string r2 = LongestCommonPrefix(new string[0]);
         Console.WriteLine("空数组 → \"" + r2 + "\"（期望 \"\"）");
         Console.WriteLine();
-        Console.WriteLine("（尚未实现，目前恒返回空串——打开本文件实现 TODO）");
     }
 
     // TODO：实现 LongestCommonPrefix
     static string LongestCommonPrefix(string[] strs)
     {
-        return "";   // 占位，实现后删除
+        if (strs == null || strs.Length == 0 || strs[0].Length == 0)
+        {
+            return "";
+        }
+        if (strs.Length == 1)
+        {
+            return strs[0][0].ToString();
+        }
+        bool IsDo = true;
+        int j = 0;
+        string result = "";
+        while (IsDo)
+        {
+            for (int i = 0; i < strs.Length - 1; i++)
+            {
+                if (j >= strs[i].Length || j >= strs[i + 1].Length)
+                {
+                    IsDo = false;
+                    break;
+                }
+                if (strs[i][j] != strs[i + 1][j])
+                {
+                    IsDo = false;
+                    break;
+                }
+            }
+            if (IsDo)
+            {
+                result = result + strs[0][j];
+            }
+            j++;
+        }
+        return result;
     }
 }
