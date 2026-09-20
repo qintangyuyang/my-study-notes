@@ -18,12 +18,21 @@ class RemoveDuplicatesDemo
         Console.Write("数组前 " + k + " 项：");
         for (int i = 0; i < k; i++) Console.Write(nums[i] + " ");
         Console.WriteLine();
-        Console.WriteLine("（尚未实现，目前恒返回 0——打开本文件实现 TODO）");
     }
 
-    // TODO：实现 RemoveDuplicates——原地去重，返回去重后的长度
     static int RemoveDuplicates(int[] nums)
     {
-        return 0;   // 占位，实现后删除
+        int k = 0;
+        if (nums.Length == 0) return 0;
+        if(nums.Length == 1) return 1;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] != nums[k])
+            {
+                k++;
+                nums[k] = nums[i];
+            }
+        }
+        return k + 1;
     }
 }

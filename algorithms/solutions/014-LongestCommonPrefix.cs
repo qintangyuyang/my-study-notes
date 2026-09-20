@@ -18,8 +18,6 @@ class LongestCommonPrefixDemo
         Console.WriteLine("空数组 → \"" + r2 + "\"（期望 \"\"）");
         Console.WriteLine();
     }
-
-    // TODO：实现 LongestCommonPrefix
     static string LongestCommonPrefix(string[] strs)
     {
         if (strs == null || strs.Length == 0 || strs[0].Length == 0)
