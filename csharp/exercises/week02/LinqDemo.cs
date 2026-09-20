@@ -29,22 +29,29 @@ class LinqDemo
         }
         Console.WriteLine("共 " + monsters.Count + " 只怪物，样例：" + monsters[0]);
 
-        // TODO 1（Where 过滤）：找出血量大于 80 的强怪，打印数量
+        //（Where 过滤）：找出血量大于 80 的强怪，打印数量
         // 提示：var strongOnes = monsters.Where(m => m.Hp > 80);
         // 提示：ToArray()/ToList() 或 foreach 才能取到结果（延迟执行）
+        var strongOnes = monsters.Where(m => m.Hp > 80).ToList();
+        Console.WriteLine("血量大于 80 的强怪数量：" + strongOnes.Count);
 
-        // TODO 2（Select 投影）：把所有怪物名字投影成 List<string>，打印前 3 个名字
+        //（Select 投影）：把所有怪物名字投影成 List<string>，打印前 3 个名字
+        var monsterNames = monsters.Select(m => m.Name).ToList();
+        Console.WriteLine("前 3 个怪物名字：" + string.Join(", ", monsterNames.Take(3)));
 
-        // TODO 3（OrderBy 排序）：按血量从低到高排序，打印血量最低的 3 只
+        //（OrderBy 排序）：按血量从低到高排序，打印血量最低的 3 只
         // 提示：OrderBy(m => m.Hp)，再 Take(3)
+        var lowestHpMonsters = monsters.OrderBy(m => m.Hp).Take(3).ToList();
+        Console.WriteLine("血量最低的 3 只怪物：" + string.Join(", ", lowestHpMonsters));
 
-        // TODO 4（Any 判断）：有没有血量小于等于 10 的「菜鸡」？打印 有/没有
+        // Any 判断）：有没有血量小于等于 10 的「菜鸡」？打印 有/没有
         // 提示：monsters.Any(m => m.Hp <= 10)
+        var hasWeakMonster = monsters.Any(m => m.Hp <= 10);
+        Console.WriteLine("有没有血量小于等于 10 的「菜鸡」？" + (hasWeakMonster ? "有" : "没有"));
 
-        // TODO 5（First 取第一个）：找出第一个血量小于等于 10 的菜鸡，打印它的名字
+        // First 取第一个）：找出第一个血量小于等于 10 的菜鸡，打印它的名字
         // 提示：FirstOrDefault(...)；找不到时返回 null，打印前先判空
-
-        Console.WriteLine();
-        Console.WriteLine("练习 1 完成！去《02-LINQ入门.md》把每个方法的作用写进笔记。");
+        var firstWeakMonster = monsters.FirstOrDefault(m => m.Hp <= 10);
+        Console.WriteLine("第一个血量小于等于 10 的菜鸡：" + (firstWeakMonster != null ? firstWeakMonster.Name : "没有找到"));
     }
 }
