@@ -44,7 +44,7 @@ class LinqDemo
         var lowestHpMonsters = monsters.OrderBy(m => m.Hp).Take(3).ToList();
         Console.WriteLine("血量最低的 3 只怪物：" + string.Join(", ", lowestHpMonsters));
 
-        // Any 判断）：有没有血量小于等于 10 的「菜鸡」？打印 有/没有
+        // (Any 判断）：有没有血量小于等于 10 的「菜鸡」？打印 有/没有
         // 提示：monsters.Any(m => m.Hp <= 10)
         var hasWeakMonster = monsters.Any(m => m.Hp <= 10);
         Console.WriteLine("有没有血量小于等于 10 的「菜鸡」？" + (hasWeakMonster ? "有" : "没有"));
