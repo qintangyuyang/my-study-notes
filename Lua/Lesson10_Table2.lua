@@ -90,3 +90,55 @@ Student.Speak()
 Student:Speak2()
 
 print("*****************表的公共操作*****************")
+--表中table提供的一些公共的讲解
+t1 = {{age = 1,name = "123"},{age = 2,name = "345"}}
+t2 = {name = "aaa",sex = true}
+
+print("*****************插入*****************")
+--插入
+print(#t1)
+table.insert(t1,t2)
+print(#t1)
+print(t1[1])
+print(t1[2])
+print(t1[3])
+print(t1[3].sex)
+
+print("*****************删除*****************")
+--删除指定元素
+--remove方法 传表进去 会移除最后一个索引的内容
+table.remove(t1)
+print(#t1)
+print(t1[1].name)
+print(t1[2].name)
+print(t1[3])
+
+--remove方法 传两个参数 第一个参数 是要移除内容的表
+--第二个参数 是要移除内容的索引
+table.remove(t1,1)
+print(t1[1].name)
+print(#t1)
+
+print("*****************排序*****************")
+t2 = {5,3,7,6,1}
+--传入要排序的表 默认 升序排列
+table.sort(t2)
+for _,v in pairs(t2) do
+	print(v)
+end
+print("*****************降序*****************")
+--传入两个参数 第一个是用于排序的表
+--第二个是 排序规则函数
+table.sort(t2,function(a,b)
+	if a>b then
+		return true
+	end
+end)
+for _,v in pairs(t2) do
+	print(v)
+end
+
+print("*****************拼接*****************")
+tb = {"123","456","789","1111"}
+str = table.concat(tb,";")
+print(str)
