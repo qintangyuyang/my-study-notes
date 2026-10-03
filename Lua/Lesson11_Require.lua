@@ -37,6 +37,7 @@ print(package.loaded["Test"])
 package.loaded["Test"] = nil
 print(package.loaded["Test"])
 
+--require 执行一个脚本时 可以在脚本最后返回一个外部希望获取的内容
 local testLA = require('Test')
 print(testLA)
 
